@@ -1,0 +1,9 @@
+{
+    "api_endpoint": "http://<IP>:<PORT>",
+    "light_entity_name": "light.[entity]",
+    "token": "LONG ACCESS TOKEN HERE",  
+    "grab_interval": 50,        
+    "skip_pixels": 10,          
+    "smoothing_factor": 0.0, 
+    "monitor_id": 0             
+}
