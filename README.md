@@ -2,10 +2,13 @@
 
 hass-light-sync is a program to capture the display's image and send the average color to a light in Home Assistant. It's similar to solutions like Philips Hue Sync and Ambilight, but only supports a single light at the moment.
 
+# Demo (Video)
+[![Demo Video](https://img.youtube.com/vi/iO3uI8IiNZM/0.jpg)](https://youtu.be/iO3uI8IiNZM)
+
 # Installation
 
 ## Precompiled Binaries (Windows)
-Download the zip-Archive from Releases and edit the settings.json file with your server information, and run the `hass-light-sync.exe`.
+Download the zip-Archive from Releases and edit the `settings.json` file with your server information, and run the `hass-light-sync.exe`.
 
 ## Compile it yourself
 Install the Rust SDK and clone the git repo. Run:
