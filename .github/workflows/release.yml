@@ -57,7 +57,7 @@ jobs:
     
     steps:
     - name: Install X11 dependencies on MacOS
-      run: brew --cask install xquartz
+      run: brew install --cask xquartz
     - uses: actions/checkout@v2
     - uses: olegtarasov/get-tag@v2.1
       id: tagName
