@@ -50,7 +50,7 @@ async fn main() {
 
     // create a capture device
     let mut capturer =
-        Capturer::new_with_timeout(settings.monitor_id as usize, Duration::from_millis(1000))
+        Capturer::new(settings.monitor_id as usize)
             .expect("❌ Failed to get Capture Object");
 
     // get the resolution of the monitor
