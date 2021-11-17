@@ -1,0 +1,77 @@
+name: Rust
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build-linux:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - uses: olegtarasov/get-tag@v2.1
+      id: tagName
+    - name: Build
+      run: cargo build --release --verbose
+    - name: Zip
+      uses: papeloto/action-zip@v1
+      with:
+       files: | 
+         target/release/hass-light-sync
+         settings.json
+       dest: hass-light-sync-${{ steps.tagName.outputs.tag }}-linux.zip
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      with:
+          files: hass-light-sync-${{ steps.tagName.outputs.tag }}-linux.zip
+          tag_name: ${{ steps.tagName.outputs.tag }}
+      
+      
+  build-windows:
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - uses: olegtarasov/get-tag@v2.1
+      id: tagName
+    - name: Build
+      run: cargo build --release --verbose
+    - name: Zip
+      uses: papeloto/action-zip@v1
+      with:
+       files: | 
+         target/release/hass-light-sync
+         settings.json
+       dest: hass-light-sync-${{ steps.tagName.outputs.tag }}-win.zip
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      with:
+          files: hass-light-sync-${{ steps.tagName.outputs.tag }}-win.zip
+          tag_name: ${{ steps.tagName.outputs.tag }}
+          
+  build-mac:
+    runs-on: macos-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - uses: olegtarasov/get-tag@v2.1
+      id: tagName
+    - name: Build
+      run: cargo build --release --verbose
+    - name: Zip
+      uses: papeloto/action-zip@v1
+      with:
+       files: | 
+         target/release/hass-light-sync
+         settings.json
+       dest: hass-light-sync-${{ steps.tagName.outputs.tag }}-macos.zip
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      with:
+          files: hass-light-sync-${{ steps.tagName.outputs.tag }}-macos.zip
+          tag_name: ${{ steps.tagName.outputs.tag }}
