@@ -21,9 +21,7 @@ jobs:
     - name: Zip
       uses: papeloto/action-zip@v1
       with:
-       files: | 
-         target/release/hass-light-sync
-         settings.json
+       files: target/release/hass-light-sync settings.json
        dest: hass-light-sync-${{ steps.tagName.outputs.tag }}-linux.zip
     - name: Release
       uses: softprops/action-gh-release@v1
@@ -44,9 +42,7 @@ jobs:
     - name: Zip
       uses: papeloto/action-zip@v1
       with:
-       files: | 
-         target/release/hass-light-sync
-         settings.json
+       files: target/release/hass-light-sync.exe settings.json
        dest: hass-light-sync-${{ steps.tagName.outputs.tag }}-win.zip
     - name: Release
       uses: softprops/action-gh-release@v1
@@ -66,9 +62,7 @@ jobs:
     - name: Zip
       uses: papeloto/action-zip@v1
       with:
-       files: | 
-         target/release/hass-light-sync
-         settings.json
+       files: target/release/hass-light-sync settings.json
        dest: hass-light-sync-${{ steps.tagName.outputs.tag }}-macos.zip
     - name: Release
       uses: softprops/action-gh-release@v1
